@@ -5,8 +5,9 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 // Importación de rutas
-var indexRouter = require("./routes/index");
+var indexRouter = require("./routes");
 var usersRouter = require("./routes/users");
+var bicicletasAPIRouter = require("./routes/api/bicicletas");
 // Creación de la instancia de Express
 var app = express();
 // 2. Configuraciones: Configuración del motor de vistas
@@ -27,6 +28,7 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 // 4. Rutas: Definición de rutas principales
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/api/bicicletas", bicicletasAPIRouter);
 // 5. Manejadores de errores
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
